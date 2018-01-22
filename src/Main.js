@@ -15,19 +15,6 @@ export default {
             created(){
                 let sockets = this.$options['sockets']
 
-                this.$options.sockets = new Proxy({}, {
-                    set: (target, key, value) => {
-                        Emitter.addListener(key, value, this)
-                        target[key] = value
-                        return true;
-                    },
-                    deleteProperty: (target, key) => {
-                        Emitter.removeListener(key, this.$options.sockets[key], this)
-                        delete target.key;
-                        return true
-                    }
-                })
-
                 if(sockets){
                     Object.keys(sockets).forEach((key) => {
                         this.$options.sockets[key] = sockets[key];
