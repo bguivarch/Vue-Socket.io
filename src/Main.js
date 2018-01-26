@@ -15,6 +15,12 @@ export default {
             created(){
                 let sockets = this.$options['sockets']
 
+                for (var socket in sockets) {
+                    Emitter.addListener(key, value, this)
+                    target[key] = value
+                    return true;
+                }
+
                 if(sockets){
                     Object.keys(sockets).forEach((key) => {
                         this.$options.sockets[key] = sockets[key];
@@ -35,5 +41,3 @@ export default {
     }
 
 }
-
-
