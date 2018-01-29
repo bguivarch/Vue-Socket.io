@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/MetinSeylan/Vue-Socket.io#readme",
   "dependencies": {
+    "proxy-polyfill": "^0.1.7",
     "socket.io-client": "^2.0.0"
   },
   "devDependencies": {
